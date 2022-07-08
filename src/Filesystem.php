@@ -160,7 +160,7 @@ class Filesystem
         $output = [];
         $directory_path = $this->rootPath($directory_path);
 
-        $find_args = [$directory_path, '-mindepth', '1', '-maxdepth', '1', '-printf', '%y\\t%f\\t%s\\t%C@\\t%#m\\n'];
+        $find_args = ['-L', $directory_path, '-mindepth', '1', '-maxdepth', '1', '-printf', '%y\\t%f\\t%s\\t%C@\\t%#m\\n'];
 
         $i = 0;
         $result = ShellCmd::bin('find', $find_args)->runRemote();
